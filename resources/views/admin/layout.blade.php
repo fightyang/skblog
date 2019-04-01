@@ -86,7 +86,7 @@
         <div class="layui-side layui-side-menu">
             <div class="layui-side-scroll">
                 <div class="layui-logo" lay-href="{{route('admin.index')}}">
-                    <span>laravel5.5</span>
+                    <span>skblog-laravel5.5</span>
                 </div>
 
                 <ul class="layui-nav layui-nav-tree" lay-shrink="all" id="LAY-system-side-menu" lay-filter="layadmin-system-side-menu">
@@ -107,12 +107,20 @@
                             </dd>
                         </dl>
                     </li>
+                    {{--$menu数据从app\providers\AppServiceProvider.php中的boot函数中传--}}
+                    {{--{{dd($menus)}}--}}
+
                     @foreach($menus as $menu)
+                        {{--<p>测试菜单数据是否传递</p>--}}
+                        {{dump($menu->name)}}
                         @can($menu->name)
+                            {{dump($menu->name)}}
                         <li data-name="{{$menu->name}}" class="layui-nav-item">
+
                             <a href="javascript:;" lay-tips="{{$menu->display_name}}" lay-direction="2">
                                 <i class="layui-icon {{$menu->icon->class??''}}"></i>
                                 <cite>{{$menu->display_name}}</cite>
+
                             </a>
                             @if($menu->childs->isNotEmpty())
                             <dl class="layui-nav-child">

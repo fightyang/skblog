@@ -50,6 +50,27 @@
             layer.msg("{{session('status')}}",{icon:6});
         @endif
 
+        //监听消息推送
+        $(document).ready(function () {
+            // 连接服务端
+            var socket = io("{{config('custom.PUSH_MESSAGE_LOGIN')}}");
+            // 连接后登录
+            socket.on('connect', function () {
+                socket.emit('login', "{{auth()->user()->uuid}}");
+            });
+            // 后端推送来消息时
+            socket.on('new_msg', function (title, content) {
+                //弹框提示
+                layer.open({
+                    title: title,
+                    content: content,
+                    offset: 'rb',
+                    anim: 1,
+                    time: 5000
+                })
+            });
+        });
+
     });
 
 
