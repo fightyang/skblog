@@ -116,10 +116,12 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $roles = Role::get();
-        $hasRoles = $user->roles();
+//        $hasRoles = $user->roles();
         foreach ($roles as $role){
             $role->own = $user->hasRole($role) ? true : false;
         }
+
+        //通过compact函数往视图传参
         return view('admin.user.role',compact('roles','user'));
     }
 

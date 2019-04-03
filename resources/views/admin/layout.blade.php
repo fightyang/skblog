@@ -108,13 +108,14 @@
                         </dl>
                     </li>
                     {{--$menu数据从app\providers\AppServiceProvider.php中的boot函数中传--}}
-                    {{--{{dd($menus)}}--}}
-
+                    {{--{{dump($permission)}}--}}
+                    {{--{{dump($menus)}}--}}
                     @foreach($menus as $menu)
-                        {{--<p>测试菜单数据是否传递</p>--}}
-                        {{dump($menu->name)}}
+
+                        {{--{{dump($menu->name)}}--}}
+
                         @can($menu->name)
-                            {{dump($menu->name)}}
+                            {{--{{dump($menu->name)}}--}}
                         <li data-name="{{$menu->name}}" class="layui-nav-item">
 
                             <a href="javascript:;" lay-tips="{{$menu->display_name}}" lay-direction="2">

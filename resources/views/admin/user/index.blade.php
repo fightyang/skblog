@@ -50,7 +50,7 @@
                 elem: '#dataTable'
                 ,height: 500
                 ,url: "{{ route('admin.data') }}" //数据接口
-                ,where:{model:"user"}
+                ,where:{model:"user"}     //查询用户表
                 ,page: true //开启分页
                 ,cols: [[ //表头
                     {checkbox: true,fixed: true}

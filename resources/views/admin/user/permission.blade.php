@@ -20,7 +20,9 @@
                 @forelse($permissions as $first)
                     <dl class="cate-box">
                         <dt>
-                        <div class="cate-first"><input id="menu{{$first['id']}}" type="checkbox" name="permissions[]" value="{{$first['id']}}" title="{{$first['display_name']}}" lay-skin="primary" {{$first['own']??''}} ></div>
+                        <div class="cate-first"><input id="menu{{$first['id']}}" type="checkbox" name="permissions[]"
+                                                       value="{{$first['id']}}" title="{{$first['display_name']}}"
+                                                       lay-skin="primary" {{$first['own']??''}} ></div>
                         </dt>
                         @if(isset($first['_child']))
                             @foreach($first['_child'] as $second)
